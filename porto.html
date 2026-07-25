@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Naiya Noveliana Ying | Data Analyst</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 30px 70px;
+            background: linear-gradient(135deg, #eff6ff, #ffffff);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text .hello {
+            color: #2563eb;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            max-width: 600px;
+            color: #6b7280;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* ================= HERO CARD ================= */
+
+        .hero-card {
+            width: 350px;
+            height: 350px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-circle {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        /* ================= GENERAL ================= */
+
+        section {
+            padding: 100px 30px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .info-card h4 {
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills {
+            background: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #f8fafc;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* ================= PROJECTS ================= */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .project-image {
+            height: 180px;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 50px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #dbeafe;
+            color: #2563eb;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .project-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ================= EDUCATION ================= */
+
+        .education {
+            background: white;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            background: #f8fafc;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #2563eb;
+            border-radius: 8px;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .date {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: #6b7280;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #111827;
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact .section-title p {
+            color: #9ca3af;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-links a {
+            color: #dbeafe;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover {
+            color: white;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        .contact-form button {
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #030712;
+            color: #9ca3af;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .hero-text h2 {
+                font-size: 22px;
+            }
+
+            .hero-card {
+                width: 280px;
+                height: 280px;
+            }
+
+            .profile-circle {
+                width: 170px;
+                height: 170px;
+                font-size: 60px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+        <nav>
+            <div class="logo">Naiya.</div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-container">
+
+            <div class="hero-text">
+
+                <div class="hello">
+                    Hello, I'm
+                </div>
+
+                <h1>
+                    Naiya Noveliana Ying
+                </h1>
+
+                <h2>
+                    Data Analyst
+                </h2>
+
+                <p>
+                    A fresh graduate with a strong interest in data analysis,
+                    statistics, and data visualization. I enjoy transforming
+                    raw data into meaningful insights that can support
+                    data-driven decision making.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#projects" class="btn btn-primary">
+                        View My Projects
+                    </a>
+
+                    <a href="CV-Naiya.pdf" class="btn btn-secondary">
+                        Download CV
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="profile-circle">
+                    NY
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>About Me</h2>
+
+                <p>
+                    Get to know me and my background
+                </p>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <div class="about-text">
+
+                    <h3>
+                        Turning Data Into Meaningful Insights
+                    </h3>
+
+                    <p>
+                        I am a Mathematics graduate with a strong interest
+                        in data analysis and statistics. My academic background
+                        has helped me develop analytical thinking, problem-solving
+                        skills, and the ability to work with quantitative data.
+                    </p>
+
+                    <p>
+                        I am passionate about exploring datasets, identifying
+                        patterns, creating visualizations, and communicating
+                        insights in a clear and meaningful way.
+                    </p>
+
+                    <p>
+                        I am currently seeking opportunities to start my career
+                        as a Data Analyst and contribute my analytical and
+                        technical skills to a data-driven organization.
+                    </p>
+
+                </div>
+
+
+                <div class="about-info">
+
+                    <div class="info-card">
+
+                        <h4>Education</h4>
+
+                        <p>
+                            Mathematics
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h4>Career Goal</h4>
+
+                        <p>
+                            Data Analyst
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h4>Interest</h4>
+
+                        <p>
+                            Data & Statistics
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h4>Location</h4>
+
+                        <p>
+                            Indonesia
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SKILLS ================= -->
+
+    <section class="skills" id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Technical Skills</h2>
+
+                <p>
+                    Tools and technologies I use for data analysis
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🐍
+                    </div>
+
+                    <h3>Python</h3>
+
+                    <p>
+                        Data analysis, data cleaning,
+                        Pandas, NumPy, Matplotlib
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🗄️
+                    </div>
+
+                    <h3>SQL</h3>
+
+                    <p>
+                        Data querying, filtering,
+                        aggregation, and database analysis
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        📊
+                    </div>
+
+                    <h3>Excel</h3>
+
+                    <p>
+                        Data cleaning, pivot tables,
+                        formulas, and data visualization
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        📈
+                    </div>
+
+                    <h3>Data Visualization</h3>
+
+                    <p>
+                        Charts, dashboards, and
+                        communicating data insights
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        📐
+                    </div>
+
+                    <h3>Statistics</h3>
+
+                    <p>
+                        Statistical analysis,
+                        hypothesis testing, and modeling
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🟢
+                    </div>
+
+                    <h3>R</h3>
+
+                    <p>
+                        Statistical computing,
+                        data analysis, and visualization
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        📋
+                    </div>
+
+                    <h3>SPSS</h3>
+
+                    <p>
+                        Statistical analysis
+                        and research data processing
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        💻
+                    </div>
+
+                    <h3>Power BI</h3>
+
+                    <p>
+                        Interactive dashboards
+                        and business data visualization
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Featured Projects</h2>
+
+                <p>
+                    Selected projects that showcase my data analysis skills
+                </p>
+
+            </div>
+
+
+            <div class="project-grid">
+
+
+                <!-- PROJECT 1 -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        📊
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Exploratory Data Analysis
+                        </h3>
+
+                        <p>
+                            An exploratory analysis project focused on
+                            understanding data distributions, identifying
+                            patterns, and discovering meaningful insights
+                            from a real-world dataset.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">
+                                Python
+                            </span>
+
+                            <span class="tag">
+                                Pandas
+                            </span>
+
+                            <span class="tag">
+                                Matplotlib
+                            </span>
+
+                        </div>
+
+                        <a href="projects/project-1.html" class="project-link">
+                            View Project →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 2 -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        📈
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Data Visualization Dashboard
+                        </h3>
+
+                        <p>
+                            An interactive dashboard designed to present
+                            key performance indicators and transform
+                            complex datasets into clear visual insights.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">
+                                Power BI
+                            </span>
+
+                            <span class="tag">
+                                Excel
+                            </span>
+
+                            <span class="tag">
+                                Dashboard
+                            </span>
+
+                        </div>
+
+                        <a href="#" class="project-link">
+                            View Project →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 3 -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        📐
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Statistical Data Analysis
+                        </h3>
+
+                        <p>
+                            A statistical analysis project applying
+                            statistical methods to identify relationships,
+                            patterns, and insights from observed data.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">
+                                R
+                            </span>
+
+                            <span class="tag">
+                                Statistics
+                            </span>
+
+                            <span class="tag">
+                                SPSS
+                            </span>
+
+                        </div>
+
+                        <a href="#" class="project-link">
+                            View Project →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= EDUCATION ================= -->
+
+    <section class="education" id="education">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Education & Experience</h2>
+
+                <p>
+                    My academic and professional journey
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <div class="timeline-item">
+
+                    <div class="date">
+                        2022 – 2026
+                    </div>
+
+                    <h3>
+                        Bachelor of Mathematics
+                    </h3>
+
+                    <p>
+                        UIN Sunan Gunung Djati Bandung
+                    </p>
+
+                    <p>
+                        Focused on statistics, data analysis,
+                        mathematical modeling, and quantitative research.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="date">
+                        Research Experience
+                    </div>
+
+                    <h3>
+                        Data Analysis & Research
+                    </h3>
+
+                    <p>
+                        Worked with statistical data analysis,
+                        survival analysis, time series analysis,
+                        and quantitative research.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="date">
+                        Internship Experience
+                    </div>
+
+                    <h3>
+                        Research Assistant
+                    </h3>
+
+                    <p>
+                        Participated in research activities involving
+                        data processing, statistical analysis,
+                        and econometric modeling.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Let's Connect</h2>
+
+                <p>
+                    I'm open to opportunities and collaborations
+                </p>
+
+            </div>
+
+
+            <div class="contact-content">
+
+
+                <div class="contact-info">
+
+                    <h3>
+                        Get In Touch
+                    </h3>
+
+                    <p>
+                        Interested in working together or discussing
+                        a Data Analyst opportunity? Feel free to contact me.
+                    </p>
+
+
+                    <div class="contact-links">
+
+                        <a href="mailto:your.email@gmail.com">
+                            📧 your.email@gmail.com
+                        </a>
+
+                        <a href="#">
+                            🔗 LinkedIn
+                        </a>
+
+                        <a href="#">
+                            💻 GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <form class="contact-form"
+                      onsubmit="sendMessage(event)">
+
+                    <input
+                        type="text"
+                        placeholder="Your Name"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        placeholder="Your Email"
+                        required
+                    >
+
+                    <textarea
+                        placeholder="Your Message"
+                        required
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Naiya Noveliana Ying.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Thank you for your message! " +
+                "This contact form is currently a demo."
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
