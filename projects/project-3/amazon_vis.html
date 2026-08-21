@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Amazon Sales Dashboard | Naiya Noveliana Ying
+    </title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+        nav {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+
+            height: 70px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+
+        .back-link {
+            color: #2563eb;
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .back-link:hover {
+            opacity: .7;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            padding: 80px 0 50px;
+
+            text-align: center;
+
+            background: linear-gradient(
+                135deg,
+                #eff6ff,
+                #ffffff
+            );
+
+            margin-bottom: 30px;
+        }
+
+
+        .project-tag {
+            display: inline-block;
+
+            background: #dbeafe;
+            color: #2563eb;
+
+            padding: 8px 18px;
+
+            border-radius: 999px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 {
+            font-size: 48px;
+
+            margin-bottom: 18px;
+
+            color: #111827;
+        }
+
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: normal;
+
+            color: #2563eb;
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero p {
+            max-width: 800px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 18px;
+        }
+
+
+        /* ================= SUMMARY ================= */
+
+        .summary {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 70px;
+        }
+
+
+        .summary-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+
+        .summary-card h3 {
+            font-size: 30px;
+
+            color: #2563eb;
+
+            margin-bottom: 8px;
+        }
+
+
+        .summary-card p {
+            color: #6b7280;
+        }
+
+
+        /* ================= SECTION ================= */
+
+        section {
+            margin-bottom: 70px;
+        }
+
+
+        section h2 {
+            font-size: 34px;
+
+            margin-bottom: 20px;
+
+            color: #111827;
+        }
+
+
+        section > p {
+            color: #6b7280;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* ================= DASHBOARD ================= */
+
+        .dashboard-section {
+            margin-top: 35px;
+        }
+
+
+        .dashboard-card {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            margin-bottom: 35px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+
+            border-top: 5px solid #2563eb;
+        }
+
+
+        .dashboard-card h3 {
+            font-size: 25px;
+
+            color: #111827;
+
+            margin-bottom: 8px;
+        }
+
+
+        .dashboard-card .tool {
+            color: #2563eb;
+
+            font-weight: 600;
+
+            margin-bottom: 20px;
+        }
+
+
+        .dashboard-description {
+            color: #6b7280;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ================= DASHBOARD IMAGE ================= */
+
+        .dashboard-image {
+            width: 100%;
+
+            border-radius: 12px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 6px 20px rgba(0,0,0,.08);
+
+            margin-top: 20px;
+        }
+
+        .powerbi-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .powerbi-container iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            display: block;
+        }
+
+
+        /* ================= INSIGHT ================= */
+
+        .insight-box {
+            margin-top: 25px;
+
+            background: #eff6ff;
+
+            border-left: 4px solid #2563eb;
+
+            padding: 20px 22px;
+
+            border-radius: 10px;
+        }
+
+
+        .insight-box strong {
+            color: #2563eb;
+        }
+
+
+        .insight-box p {
+            margin-top: 5px;
+
+            color: #4b5563;
+        }
+
+
+        /* ================= SKILLS ================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .skill-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+
+        .skill-card h3 {
+            color: #2563eb;
+
+            margin-bottom: 10px;
+        }
+
+
+        .skill-card p {
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= CONCLUSION ================= */
+
+        .conclusion {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            margin-top: 80px;
+
+            padding: 35px;
+
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+
+            font-size: 15px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 900px) {
+
+            .summary {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .dashboard-card {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                Naiya.
+            </div>
+
+
+            <a
+                href="../../porto.html"
+                class="back-link"
+            >
+                ← Back to Portfolio
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <span class="project-tag">
+                Data Visualization Project
+            </span>
+
+
+            <h1>
+                Amazon Sales Dashboard
+            </h1>
+
+
+            <h2>
+                Interactive Business Intelligence Dashboard
+            </h2>
+
+
+            <p>
+
+                This project visualizes 100,000 Amazon
+                e-commerce transactions using Microsoft Excel
+                and Power BI to identify sales performance,
+                customer behavior, product performance,
+                payment preferences, and geographical trends.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section>
+
+            <div class="summary">
+
+
+                <div class="summary-card">
+
+                    <h3>
+                        100K
+                    </h3>
+
+                    <p>
+                        Transactions
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>
+                        $91.83M
+                    </h3>
+
+                    <p>
+                        Total Revenue
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>
+                        43.23K
+                    </h3>
+
+                    <p>
+                        Unique Customers
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>
+                        2
+                    </h3>
+
+                    <p>
+                        Visualization Tools
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= PROJECT OVERVIEW ================= -->
+
+        <section>
+
+            <h2>
+                Project Overview
+            </h2>
+
+
+            <p>
+
+                Raw transaction data can contain valuable
+                information, but visual dashboards make
+                important patterns easier to identify and
+                communicate to stakeholders.
+
+            </p>
+
+
+            <p>
+
+                This project transforms the Amazon sales dataset
+                into interactive dashboards using two commonly
+                used data visualization tools: Microsoft Excel
+                and Power BI.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= DASHBOARDS ================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Dashboard Analysis
+            </h2>
+
+
+            <!-- ================= EXCEL ================= -->
+
+            <div class="dashboard-card">
+
+                <h3>
+                    1. Amazon Sales Dashboard using Microsoft Excel
+                </h3>
+
+
+                <div class="tool">
+                    Microsoft Excel
+                </div>
+
+
+                <p class="dashboard-description">
+
+                    An Excel dashboard was created to summarize
+                    key sales performance indicators and explore
+                    patterns across categories, products,
+                    customers, and time.
+
+                </p>
+
+
+                <!-- GANTI NAMA FILE GAMBAR DI SINI -->
+
+                <img
+                    src="amazon_ex.png"
+                    alt="Amazon Sales Dashboard using Microsoft Excel"
+                    class="dashboard-image"
+                >
+
+
+                <div class="insight-box">
+
+                    <strong>
+                        Key Insight:
+                    </strong>
+
+                    <p>
+
+                        The dashboard provides a concise overview
+                        of sales performance and allows users to
+                        explore important business metrics through
+                        interactive Excel visualizations.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= POWER BI ================= -->
+
+            <div class="dashboard-card">
+
+                <h3>
+                    2. Amazon Sales Dashboard using Power BI
+                </h3>
+
+
+                <div class="tool">
+                    Microsoft Power BI
+                </div>
+
+
+                <p class="dashboard-description">
+
+                    A Power BI dashboard was developed to provide
+                    interactive analysis of revenue, orders,
+                    customers, products, payment methods,
+                    geographical distribution, and monthly sales
+                    trends.
+
+                </p>
+
+
+                <div class="powerbi-container">
+
+                    <iframe
+                        title="amazon visualization"
+                        src="https://app.powerbi.com/view?r=eyJrIjoiNzkxNWZmZDktOWU0Ni00YWNlLWI0NzUtZDFhYzFkNmEyMjA2IiwidCI6IjUwODkxNmEwLTdiODktNDNhMS1hZjRlLTcyZmUxNWFiYTViOSIsImMiOjEwfQ%3D%3D"
+                        frameborder="0"
+                        allowFullScreen="true">
+                    </iframe>
+
+                </div>
+
+                <div class="insight-box">
+
+                    <strong>
+                        Key Insight:
+                    </strong>
+
+                    <p>
+
+                        The Power BI dashboard highlights overall
+                        revenue performance, product contribution,
+                        payment preferences, geographical sales,
+                        and monthly revenue trends.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= KEY FINDINGS ================= -->
+
+        <section>
+
+            <h2>
+                Key Findings
+            </h2>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Revenue
+                    </h3>
+
+                    <p>
+                        $91.83M total revenue generated from
+                        100,000 transactions.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Products
+                    </h3>
+
+                    <p>
+                        Top-performing products were identified
+                        through revenue ranking.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Customers
+                    </h3>
+
+                    <p>
+                        Customer activity and spending patterns
+                        were explored.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Geography
+                    </h3>
+
+                    <p>
+                        Revenue distribution across countries
+                        was visualized.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section>
+
+            <h2>
+                Skills Demonstrated
+            </h2>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Microsoft Excel
+                    </h3>
+
+                    <p>
+                        Data organization, analysis,
+                        charts, and dashboard design.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Power BI
+                    </h3>
+
+                    <p>
+                        Interactive dashboards,
+                        filters, and data visualization.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Data Visualization
+                    </h3>
+
+                    <p>
+                        Transforming data into clear
+                        visual business insights.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Business Analysis
+                    </h3>
+
+                    <p>
+                        Communicating findings through
+                        meaningful KPIs and visual reports.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CONCLUSION ================= -->
+
+        <section>
+
+            <h2>
+                Conclusion
+            </h2>
+
+
+            <div class="conclusion">
+
+                <p>
+
+                    This project demonstrates how data
+                    visualization can transform raw transactional
+                    data into clear and actionable business
+                    information.
+
+                </p>
+
+
+                <p>
+
+                    By combining Microsoft Excel and Power BI,
+                    the analysis presents sales performance,
+                    customer behavior, product performance,
+                    payment preferences, geographical distribution,
+                    and sales trends in an accessible dashboard
+                    format.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026 Naiya Noveliana Ying · Data Analyst Portfolio
+
+    </footer>
+
+
+</body>
+
+</html>

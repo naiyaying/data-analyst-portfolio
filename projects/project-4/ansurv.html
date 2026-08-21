@@ -1,0 +1,2704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Survival Analysis of Age at First Marriage | Naiya Noveliana Ying
+    </title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+        nav {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+
+            height: 70px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+
+        .back-link {
+            color: #2563eb;
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+
+        .back-link:hover {
+            opacity: .7;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            padding: 80px 0 50px;
+
+            text-align: center;
+
+            background: linear-gradient(
+                135deg,
+                #eff6ff,
+                #ffffff
+            );
+
+            margin-bottom: 30px;
+        }
+
+
+        .project-tag {
+            display: inline-block;
+
+            background: #dbeafe;
+            color: #2563eb;
+
+            padding: 8px 18px;
+
+            border-radius: 999px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 {
+            font-size: 46px;
+
+            margin-bottom: 18px;
+
+            color: #111827;
+        }
+
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: normal;
+
+            color: #2563eb;
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero p {
+            max-width: 850px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 18px;
+        }
+
+
+        /* ================= SUMMARY ================= */
+
+        .summary {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 70px;
+        }
+
+
+        .summary-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+
+        .summary-card h3 {
+            font-size: 30px;
+
+            color: #2563eb;
+
+            margin-bottom: 8px;
+        }
+
+
+        .summary-card p {
+            color: #6b7280;
+        }
+
+        /* ================= DESCRIPTIVE ANALYSIS ================= */
+
+        .descriptive-intro {
+            max-width: 850px;
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+
+        .descriptive-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+
+        .descriptive-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+
+        .descriptive-card h3 {
+            font-size: 22px;
+            color: #111827;
+            margin-bottom: 5px;
+        }
+
+
+        .descriptive-card .sample-size {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+
+        .descriptive-table-wrapper {
+            overflow-x: auto;
+        }
+
+
+        .descriptive-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+
+        .descriptive-table th {
+            background: #eff6ff;
+            color: #2563eb;
+            font-weight: 600;
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 2px solid #dbeafe;
+        }
+
+
+        .descriptive-table td {
+            padding: 10px;
+            color: #4b5563;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+
+        .descriptive-table tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        .descriptive-table .category {
+            font-weight: 600;
+            color: #374151;
+        }
+
+
+        .descriptive-table .total-row td {
+            font-weight: 700;
+            color: #111827;
+            background: #f9fafb;
+        }
+
+
+        /* ================= DESCRIPTIVE INSIGHTS ================= */
+
+        .descriptive-insights {
+            margin-top: 30px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+
+        .descriptive-insight {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+
+        .descriptive-insight h4 {
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+
+
+        .descriptive-insight p {
+            color: #4b5563;
+            font-size: 14px;
+        }
+
+
+        /* ================= KAPLAN-MEIER ================= */
+
+        .km-intro {
+            max-width: 850px;
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+
+        .km-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+
+        .km-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+
+        .km-card h3 {
+            font-size: 22px;
+            color: #111827;
+            margin-bottom: 5px;
+        }
+
+
+        .km-card .sample-size {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+
+        .km-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            background: white;
+        }
+
+
+        .km-caption {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #6b7280;
+            text-align: center;
+        }
+
+
+        /* ================= KAPLAN-MEIER INSIGHT ================= */
+
+        .km-insight {
+            margin-top: 30px;
+
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+            border-left: 5px solid #2563eb;
+        }
+
+
+        .km-insight h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+
+        .km-insight p {
+            color: #4b5563;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .descriptive-grid,
+            .km-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .descriptive-insights {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .descriptive-card,
+            .km-card,
+            .km-insight {
+                padding: 20px;
+            }
+
+            .descriptive-table {
+                min-width: 650px;
+            }
+
+        }
+
+
+
+
+        /* ================= SECTION ================= */
+
+        section {
+            margin-bottom: 70px;
+        }
+
+
+        section h2 {
+            font-size: 34px;
+
+            margin-bottom: 20px;
+
+            color: #111827;
+        }
+
+
+        section > p {
+            color: #6b7280;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* ================= PROJECT OVERVIEW ================= */
+
+        .overview-card {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+
+        .overview-card p {
+            color: #6b7280;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* ================= VARIABLES ================= */
+
+        .variable-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .variable-card {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+
+            border-top: 5px solid #2563eb;
+        }
+
+
+        .variable-card h3 {
+            font-size: 24px;
+
+            color: #111827;
+
+            margin-bottom: 15px;
+        }
+
+
+        .variable-card p {
+            color: #6b7280;
+
+            margin-bottom: 10px;
+        }
+
+
+        .variable-card ul {
+            padding-left: 20px;
+
+            color: #6b7280;
+        }
+
+
+        .variable-card li {
+            margin-bottom: 6px;
+        }
+
+
+        .variable-label {
+            color: #2563eb;
+
+            font-weight: bold;
+        }
+
+
+        /* ================= ANALYSIS CARD ================= */
+
+        .analysis-card {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+
+            border-top: 5px solid #2563eb;
+        }
+
+
+        .analysis-card h3 {
+            font-size: 25px;
+
+            color: #111827;
+
+            margin-bottom: 8px;
+        }
+
+
+        .tool {
+            color: #2563eb;
+
+            font-weight: 600;
+
+            margin-bottom: 20px;
+        }
+
+
+        .analysis-description {
+            color: #6b7280;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* ================= MODEL GRID ================= */
+
+        .model-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+            margin-top: 25px;
+        }
+
+
+        .model-box {
+            background: #f9fafb;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 25px;
+        }
+
+
+        .model-box h4 {
+            color: #2563eb;
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .model-box p {
+            color: #6b7280;
+        }
+
+
+        /* ================= RESULT TABLE ================= */
+
+        .table-container {
+            overflow-x: auto;
+
+            margin-top: 20px;
+        }
+
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+        }
+
+
+        th,
+        td {
+            padding: 13px 15px;
+
+            text-align: left;
+
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+
+        th {
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            font-weight: 600;
+        }
+
+
+        td {
+            color: #4b5563;
+        }
+
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        /* ================= INSIGHT ================= */
+
+        .insight-box {
+            margin-top: 25px;
+
+            background: #eff6ff;
+
+            border-left: 4px solid #2563eb;
+
+            padding: 20px 22px;
+
+            border-radius: 10px;
+        }
+
+
+        .insight-box strong {
+            color: #2563eb;
+        }
+
+
+        .insight-box p {
+            margin-top: 5px;
+
+            color: #4b5563;
+        }
+
+
+        /* ================= FORMULA ================= */
+
+        .formula {
+            background: #111827;
+
+            color: white;
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+            margin-top: 20px;
+
+            font-family: "Courier New", monospace;
+
+            overflow-x: auto;
+        }
+
+
+        /* ================= FINDINGS ================= */
+
+        .findings-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .finding-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+
+        .finding-card h3 {
+            color: #2563eb;
+
+            margin-bottom: 10px;
+        }
+
+
+        .finding-card p {
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= SKILLS ================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .skill-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+
+        .skill-card h3 {
+            color: #2563eb;
+
+            margin-bottom: 10px;
+        }
+
+
+        .skill-card p {
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= CONCLUSION ================= */
+
+        .conclusion {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+
+        .conclusion p {
+            color: #6b7280;
+
+            margin-bottom: 18px;
+        }
+
+
+        .conclusion p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            margin-top: 80px;
+
+            padding: 35px;
+
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+
+            font-size: 15px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 900px) {
+
+            .summary {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .findings-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .variable-grid,
+            .model-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+
+            .findings-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .analysis-card,
+            .variable-card,
+            .overview-card {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                Naiya.
+            </div>
+
+
+            <a
+                href="../../porto.html"
+                class="back-link"
+            >
+                ← Back to Portfolio
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <span class="project-tag">
+                Statistical Data Analysis
+            </span>
+
+
+            <h1>
+                Survival Analysis of Age at First Marriage
+            </h1>
+
+
+            <h2>
+                Cox Proportional Hazards & Accelerated Failure Time
+            </h2>
+
+
+            <p>
+
+                A survival analysis project examining age at first
+                marriage in Tasikmalaya Regency and Bandung City,
+                focusing on demographic factors associated with
+                the timing of first marriage.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section>
+
+            <div class="summary">
+
+
+                <div class="summary-card">
+
+                    <h3>
+                        3,587
+                    </h3>
+
+                    <p>
+                        Total Observations
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>
+                        2
+                    </h3>
+
+                    <p>
+                        Study Regions
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>
+                        3
+                    </h3>
+
+                    <p>
+                        Independent Variables
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>
+                        2
+                    </h3>
+
+                    <p>
+                        Survival Models
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= PROJECT OVERVIEW ================= -->
+
+        <section>
+
+            <h2>
+                Project Overview
+            </h2>
+
+
+            <div class="overview-card">
+
+                <p>
+
+                    Age at first marriage is an important demographic
+                    indicator that can be analyzed as a time-to-event
+                    outcome. This project applies survival analysis to
+                    examine the timing of first marriage and identify
+                    demographic factors associated with the event.
+
+                </p>
+
+
+                <p>
+
+                    The analysis uses data from 1,826 individuals in
+                    Tasikmalaya Regency and 1,761 individuals in
+                    Bandung City. The analysis focuses on gender,
+                    education, and employment status as explanatory
+                    variables.
+
+                </p>
+
+
+                <p>
+
+                    Kaplan-Meier estimation is used to describe the
+                    survival pattern, followed by Cox Proportional
+                    Hazards modeling and Accelerated Failure Time
+                    modeling to investigate factors associated with
+                    the timing of first marriage.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= VARIABLES ================= -->
+
+        <section>
+
+            <h2>
+                Variables
+            </h2>
+
+
+            <div class="variable-grid">
+
+
+                <div class="variable-card">
+
+                    <h3>
+                        Dependent Variable
+                    </h3>
+
+
+                    <p>
+                        <span class="variable-label">
+                            Time-to-Event:
+                        </span>
+                        Age at First Marriage
+                    </p>
+
+
+                    <p>
+
+                        The event of interest is the occurrence of
+                        an individual's first marriage.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="variable-card">
+
+                    <h3>
+                        Independent Variables
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+                            Gender
+                        </li>
+
+                        <li>
+                            Education
+                        </li>
+
+                        <li>
+                            Employment Status
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DESCRIPTIVE ANALYSIS ================= -->
+
+        <section>
+
+            <h2>
+                Descriptive Analysis
+            </h2>
+
+            <p class="descriptive-intro">
+
+                Descriptive analysis was conducted to summarize the demographic
+                characteristics of respondents and examine the average age at
+                first marriage across gender, education, and employment groups.
+
+            </p>
+
+
+            <div class="descriptive-grid">
+
+
+                <!-- TASIKMALAYA -->
+
+                <div class="descriptive-card">
+
+                    <h3>
+                        Tasikmalaya Regency
+                    </h3>
+
+                    <div class="sample-size">
+                        1,826 respondents
+                    </div>
+
+
+                    <div class="descriptive-table-wrapper">
+
+                        <table class="descriptive-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Variable
+                                    </th>
+
+                                    <th>
+                                        Category
+                                    </th>
+
+                                    <th>
+                                        Frequency
+                                    </th>
+
+                                    <th>
+                                        %
+                                    </th>
+
+                                    <th>
+                                        Mean Age
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <!-- Gender -->
+
+                                <tr>
+
+                                    <td rowspan="2" class="category">
+                                        Gender
+                                    </td>
+
+                                    <td>
+                                        Male
+                                    </td>
+
+                                    <td>
+                                        850
+                                    </td>
+
+                                    <td>
+                                        46.5
+                                    </td>
+
+                                    <td>
+                                        23.92
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Female
+                                    </td>
+
+                                    <td>
+                                        976
+                                    </td>
+
+                                    <td>
+                                        53.5
+                                    </td>
+
+                                    <td>
+                                        19.11
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- Education -->
+
+                                <tr>
+
+                                    <td rowspan="6" class="category">
+                                        Education
+                                    </td>
+
+                                    <td>
+                                        No Schooling
+                                    </td>
+
+                                    <td>
+                                        6
+                                    </td>
+
+                                    <td>
+                                        0.3
+                                    </td>
+
+                                    <td>
+                                        18.17
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Elementary School
+                                    </td>
+
+                                    <td>
+                                        1,076
+                                    </td>
+
+                                    <td>
+                                        58.9
+                                    </td>
+
+                                    <td>
+                                        20.63
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Junior High School
+                                    </td>
+
+                                    <td>
+                                        391
+                                    </td>
+
+                                    <td>
+                                        21.4
+                                    </td>
+
+                                    <td>
+                                        21.24
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Senior High School
+                                    </td>
+
+                                    <td>
+                                        255
+                                    </td>
+
+                                    <td>
+                                        14.0
+                                    </td>
+
+                                    <td>
+                                        23.42
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        D1/D2/D3
+                                    </td>
+
+                                    <td>
+                                        14
+                                    </td>
+
+                                    <td>
+                                        0.8
+                                    </td>
+
+                                    <td>
+                                        25.21
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        D4/S1/Prof/S2/S3
+                                    </td>
+
+                                    <td>
+                                        84
+                                    </td>
+
+                                    <td>
+                                        4.6
+                                    </td>
+
+                                    <td>
+                                        24.32
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- Employment -->
+
+                                <tr>
+
+                                    <td rowspan="2" class="category">
+                                        Employment
+                                    </td>
+
+                                    <td>
+                                        Not Working
+                                    </td>
+
+                                    <td>
+                                        526
+                                    </td>
+
+                                    <td>
+                                        28.8
+                                    </td>
+
+                                    <td>
+                                        19.74
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Working
+                                    </td>
+
+                                    <td>
+                                        1,300
+                                    </td>
+
+                                    <td>
+                                        71.2
+                                    </td>
+
+                                    <td>
+                                        22.00
+                                    </td>
+
+                                </tr>
+
+
+                                <tr class="total-row">
+
+                                    <td colspan="2">
+                                        Total
+                                    </td>
+
+                                    <td>
+                                        1,826
+                                    </td>
+
+                                    <td>
+                                        100
+                                    </td>
+
+                                    <td>
+                                        21.35
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BANDUNG -->
+
+                <div class="descriptive-card">
+
+                    <h3>
+                        Bandung City
+                    </h3>
+
+                    <div class="sample-size">
+                        1,761 respondents
+                    </div>
+
+
+                    <div class="descriptive-table-wrapper">
+
+                        <table class="descriptive-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Variable
+                                    </th>
+
+                                    <th>
+                                        Category
+                                    </th>
+
+                                    <th>
+                                        Frequency
+                                    </th>
+
+                                    <th>
+                                        %
+                                    </th>
+
+                                    <th>
+                                        Mean Age
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <!-- Gender -->
+
+                                <tr>
+
+                                    <td rowspan="2" class="category">
+                                        Gender
+                                    </td>
+
+                                    <td>
+                                        Male
+                                    </td>
+
+                                    <td>
+                                        819
+                                    </td>
+
+                                    <td>
+                                        46.5
+                                    </td>
+
+                                    <td>
+                                        25.61
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Female
+                                    </td>
+
+                                    <td>
+                                        942
+                                    </td>
+
+                                    <td>
+                                        53.5
+                                    </td>
+
+                                    <td>
+                                        22.33
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- Education -->
+
+                                <tr>
+
+                                    <td rowspan="6" class="category">
+                                        Education
+                                    </td>
+
+                                    <td>
+                                        No Schooling
+                                    </td>
+
+                                    <td>
+                                        4
+                                    </td>
+
+                                    <td>
+                                        0.2
+                                    </td>
+
+                                    <td>
+                                        24.25
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Elementary School
+                                    </td>
+
+                                    <td>
+                                        381
+                                    </td>
+
+                                    <td>
+                                        21.6
+                                    </td>
+
+                                    <td>
+                                        21.49
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Junior High School
+                                    </td>
+
+                                    <td>
+                                        300
+                                    </td>
+
+                                    <td>
+                                        17.0
+                                    </td>
+
+                                    <td>
+                                        22.10
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Senior High School
+                                    </td>
+
+                                    <td>
+                                        710
+                                    </td>
+
+                                    <td>
+                                        40.3
+                                    </td>
+
+                                    <td>
+                                        24.34
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        D1/D2/D3
+                                    </td>
+
+                                    <td>
+                                        105
+                                    </td>
+
+                                    <td>
+                                        6.0
+                                    </td>
+
+                                    <td>
+                                        26.46
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        D4/S1/Prof/S2/S3
+                                    </td>
+
+                                    <td>
+                                        261
+                                    </td>
+
+                                    <td>
+                                        14.8
+                                    </td>
+
+                                    <td>
+                                        26.97
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- Employment -->
+
+                                <tr>
+
+                                    <td rowspan="2" class="category">
+                                        Employment
+                                    </td>
+
+                                    <td>
+                                        Not Working
+                                    </td>
+
+                                    <td>
+                                        612
+                                    </td>
+
+                                    <td>
+                                        34.8
+                                    </td>
+
+                                    <td>
+                                        22.63
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Working
+                                    </td>
+
+                                    <td>
+                                        1,149
+                                    </td>
+
+                                    <td>
+                                        65.2
+                                    </td>
+
+                                    <td>
+                                        24.51
+                                    </td>
+
+                                </tr>
+
+
+                                <tr class="total-row">
+
+                                    <td colspan="2">
+                                        Total
+                                    </td>
+
+                                    <td>
+                                        1,761
+                                    </td>
+
+                                    <td>
+                                        100
+                                    </td>
+
+                                    <td>
+                                        23.86
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- DESCRIPTIVE INSIGHTS -->
+
+            <div class="descriptive-insights">
+
+
+                <div class="descriptive-insight">
+
+                    <h4>
+                        Age at First Marriage
+                    </h4>
+
+                    <p>
+
+                        The average age at first marriage was
+                        <strong>21.35 years</strong> in Tasikmalaya and
+                        <strong>23.86 years</strong> in Bandung.
+
+                    </p>
+
+                </div>
+
+
+                <div class="descriptive-insight">
+
+                    <h4>
+                        Gender Pattern
+                    </h4>
+
+                    <p>
+
+                        Female respondents had a lower average age at
+                        first marriage than male respondents in both regions.
+
+                    </p>
+
+                </div>
+
+
+                <div class="descriptive-insight">
+
+                    <h4>
+                        Education Pattern
+                    </h4>
+
+                    <p>
+
+                        Higher education groups generally showed higher
+                        average ages at first marriage.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+        <!-- ================= KAPLAN-MEIER ANALYSIS ================= -->
+
+        <section>
+
+            <h2>
+                Kaplan-Meier Analysis
+            </h2>
+
+
+            <p class="km-intro">
+
+                Kaplan-Meier estimation was used to examine the probability
+                of remaining unmarried as age increases. The survival curve
+                describes the probability that an individual has not yet
+                experienced their first marriage at a given age.
+
+            </p>
+
+
+            <div class="km-grid">
+
+
+                <!-- TASIKMALAYA -->
+
+                <div class="km-card">
+
+                    <h3>
+                        Tasikmalaya Regency
+                    </h3>
+
+                    <div class="sample-size">
+                        n = 1,826
+                    </div>
+
+
+                    <img
+                        src="KM-tasik.png"
+                        alt="Kaplan-Meier survival curve for Tasikmalaya Regency"
+                        class="km-image"
+                    >
+
+
+                    <p class="km-caption">
+
+                        Kaplan-Meier survival curve of age at first marriage
+                        in Tasikmalaya Regency.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- BANDUNG -->
+
+                <div class="km-card">
+
+                    <h3>
+                        Bandung City
+                    </h3>
+
+                    <div class="sample-size">
+                        n = 1,761
+                    </div>
+
+
+                    <img
+                        src="KM-bdg.png"
+                        alt="Kaplan-Meier survival curve for Bandung City"
+                        class="km-image"
+                    >
+
+
+                    <p class="km-caption">
+
+                        Kaplan-Meier survival curve of age at first marriage
+                        in Bandung City.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- KAPLAN-MEIER INSIGHT -->
+
+            <div class="km-insight">
+
+                <h3>
+                    Key Insight
+                </h3>
+
+                <p>
+
+                    The survival probability decreases as age increases,
+                    indicating that more respondents experience their first
+                    marriage during early adulthood. In Tasikmalaya, the
+                    decline is particularly visible between ages 18–25,
+                    while the distribution in Bandung is generally shifted
+                    toward older ages.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SURVIVAL PATTERN ================= -->
+
+        <section>
+
+            <h2>
+                Survival Pattern
+            </h2>
+
+
+            <div class="analysis-card">
+
+                <h3>
+                    Kaplan-Meier Analysis
+                </h3>
+
+
+                <div class="tool">
+                    Survival Analysis
+                </div>
+
+
+                <p class="analysis-description">
+
+                    Kaplan-Meier estimation was used to examine the
+                    probability of remaining unmarried as age increases.
+                    In both regions, the survival probability remains
+                    relatively high at younger ages and decreases
+                    substantially between ages 18–25.
+
+                </p>
+
+
+                <div class="model-grid">
+
+
+                    <div class="model-box">
+
+                        <h4>
+                            Tasikmalaya Regency
+                        </h4>
+
+                        <p>
+
+                            The median age at first marriage was
+                            approximately 20–21 years. The curve shows
+                            a sharp decline during early adulthood.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="model-box">
+
+                        <h4>
+                            Bandung City
+                        </h4>
+
+                        <p>
+
+                            Age at first marriage was generally
+                            concentrated around 22–24 years, with a
+                            similar decline in the early-adult period.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="insight-box">
+
+                    <strong>
+                        Key Insight:
+                    </strong>
+
+                    <p>
+
+                        First marriage events are concentrated during
+                        early adulthood, while Tasikmalaya tends to
+                        show younger first-marriage ages than Bandung.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CPH ================= -->
+
+        <section>
+
+            <h2>
+                Cox Proportional Hazards Analysis
+            </h2>
+
+
+            <div class="analysis-card">
+
+                <h3>
+                    1. Cox Proportional Hazards (CPH)
+                </h3>
+
+
+                <div class="tool">
+                    SPSS
+                </div>
+
+
+                <p class="analysis-description">
+
+                    The Cox Proportional Hazards model was used to
+                    examine how demographic factors affect the hazard
+                    of experiencing first marriage.
+
+                    The proportional hazards assumption was supported
+                    by the Log-Minus-Log analysis.
+
+                </p>
+
+
+                <div class="model-grid">
+
+
+                    <!-- TASIKMALAYA -->
+
+                    <div class="model-box">
+
+                        <h4>
+                            Tasikmalaya Regency
+                        </h4>
+
+
+                        <div class="table-container">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>HR</th>
+                                        <th>p-value</th>
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>0.331</td>
+                                        <td>&lt; 0.001</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Education</td>
+                                        <td>Significant</td>
+                                        <td>&lt; 0.001</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Employment</td>
+                                        <td>0.907</td>
+                                        <td>0.093</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BANDUNG -->
+
+                    <div class="model-box">
+
+                        <h4>
+                            Bandung City
+                        </h4>
+
+
+                        <div class="table-container">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>HR</th>
+                                        <th>p-value</th>
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>0.567</td>
+                                        <td>&lt; 0.001</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Education</td>
+                                        <td>Significant</td>
+                                        <td>&lt; 0.001</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Employment</td>
+                                        <td>1.021</td>
+                                        <td>0.718</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="insight-box">
+
+                    <strong>
+                        Key Insight:
+                    </strong>
+
+                    <p>
+
+                        Gender and education significantly influence
+                        the hazard of first marriage in both regions.
+                        Males have a lower hazard of first marriage
+                        compared with females, while lower education
+                        levels are associated with a higher hazard.
+                        Employment status is not statistically
+                        significant.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= AFT ================= -->
+
+        <section>
+
+            <h2>
+                Accelerated Failure Time Analysis
+            </h2>
+
+
+            <div class="analysis-card">
+
+                <h3>
+                    2. Accelerated Failure Time (AFT)
+                </h3>
+
+
+                <div class="tool">
+                    R
+                </div>
+
+
+                <p class="analysis-description">
+
+                    The Accelerated Failure Time model was used to
+                    analyze the effect of demographic variables on
+                    the timing of first marriage from a time-based
+                    perspective.
+
+                    Several distributions were compared using AIC.
+
+                </p>
+
+
+                <div class="model-grid">
+
+
+                    <div class="model-box">
+
+                        <h4>
+                            Best Distribution
+                        </h4>
+
+                        <p>
+
+                            <strong>
+                                Log-logistic
+                            </strong>
+                            was selected as the best AFT model in
+                            both regions based on the lowest AIC.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="model-box">
+
+                        <h4>
+                            Model Comparison
+                        </h4>
+
+                        <p>
+
+                            Tasikmalaya AIC:
+                            <strong>9624.47</strong>
+
+                            <br>
+
+                            Bandung AIC:
+                            <strong>9806.412</strong>
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- TASIKMALAYA AFT -->
+
+                <div class="model-box"
+                     style="margin-top: 25px;">
+
+                    <h4>
+                        Tasikmalaya Regency
+                    </h4>
+
+
+                    <div class="formula">
+
+                        log(T) = 3.03095 - 0.23029X₁
+                        + 0.05260X₂ - 0.00445X₃
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Variable</th>
+                                    <th>Coefficient</th>
+                                    <th>Acceleration Factor</th>
+                                    <th>p-value</th>
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Gender</td>
+                                    <td>-0.23029</td>
+                                    <td>0.794</td>
+                                    <td>&lt; 0.001</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Education</td>
+                                    <td>0.05260</td>
+                                    <td>1.054</td>
+                                    <td>&lt; 0.001</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Employment</td>
+                                    <td>-0.00445</td>
+                                    <td>0.996</td>
+                                    <td>0.620</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BANDUNG AFT -->
+
+                <div class="model-box"
+                     style="margin-top: 25px;">
+
+                    <h4>
+                        Bandung City
+                    </h4>
+
+
+                    <div class="formula">
+
+                        log(T) = 3.03095 - 0.13289X₁
+                        + 0.06327X₂ + 0.01079X₃
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Variable</th>
+                                    <th>Coefficient</th>
+                                    <th>Acceleration Factor</th>
+                                    <th>p-value</th>
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Gender</td>
+                                    <td>-0.13289</td>
+                                    <td>0.876</td>
+                                    <td>&lt; 0.001</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Education</td>
+                                    <td>0.06327</td>
+                                    <td>1.065</td>
+                                    <td>&lt; 0.001</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Employment</td>
+                                    <td>0.01079</td>
+                                    <td>1.011</td>
+                                    <td>0.230</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <div class="insight-box">
+
+                    <strong>
+                        Key Insight:
+                    </strong>
+
+                    <p>
+
+                        Gender and education significantly affect the
+                        timing of first marriage. Female respondents
+                        tend to experience marriage earlier, while
+                        higher education tends to delay the timing
+                        of first marriage. Employment status does
+                        not show a significant effect.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= KEY FINDINGS ================= -->
+
+        <section>
+
+            <h2>
+                Key Findings
+            </h2>
+
+
+            <div class="findings-grid">
+
+
+                <div class="finding-card">
+
+                    <h3>
+                        Gender
+                    </h3>
+
+                    <p>
+
+                        Females tend to experience first marriage
+                        earlier than males in both regions.
+
+                    </p>
+
+                </div>
+
+
+                <div class="finding-card">
+
+                    <h3>
+                        Education
+                    </h3>
+
+                    <p>
+
+                        Higher education is associated with a delay
+                        in the timing of first marriage.
+
+                    </p>
+
+                </div>
+
+
+                <div class="finding-card">
+
+                    <h3>
+                        Employment
+                    </h3>
+
+                    <p>
+
+                        Employment status does not have a significant
+                        effect on first-marriage timing.
+
+                    </p>
+
+                </div>
+
+
+                <div class="finding-card">
+
+                    <h3>
+                        Region
+                    </h3>
+
+                    <p>
+
+                        First-marriage age tends to be younger in
+                        Tasikmalaya than in Bandung.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section>
+
+            <h2>
+                Skills Demonstrated
+            </h2>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Survival Analysis
+                    </h3>
+
+                    <p>
+
+                        Kaplan-Meier estimation and time-to-event
+                        analysis.
+
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Cox PH
+                    </h3>
+
+                    <p>
+
+                        Modeling hazard ratios and interpreting
+                        demographic effects.
+
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        AFT Modeling
+                    </h3>
+
+                    <p>
+
+                        Parametric survival modeling and model
+                        comparison using AIC.
+
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        R & SPSS
+                    </h3>
+
+                    <p>
+
+                        Statistical modeling and interpretation
+                        using R and SPSS.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CONCLUSION ================= -->
+
+        <section>
+
+            <h2>
+                Conclusion
+            </h2>
+
+
+            <div class="conclusion">
+
+                <p>
+
+                    This project demonstrates the application of
+                    survival analysis to investigate age at first
+                    marriage in Tasikmalaya Regency and Bandung City.
+
+                </p>
+
+
+                <p>
+
+                    The Cox Proportional Hazards model shows that
+                    gender and education are important factors
+                    associated with the hazard of first marriage,
+                    while employment status is not significant.
+
+                </p>
+
+
+                <p>
+
+                    The Accelerated Failure Time analysis identifies
+                    the log-logistic distribution as the best-fitting
+                    model in both regions. The results consistently
+                    indicate that females tend to marry earlier,
+                    while higher education tends to delay first
+                    marriage.
+
+                </p>
+
+
+                <p>
+
+                    Overall, the analysis demonstrates how survival
+                    modeling can be used to understand demographic
+                    time-to-event data and identify factors associated
+                    with the timing of an important life event.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026 Naiya Noveliana Ying · Data Analyst Portfolio
+
+    </footer>
+
+
+</body>
+
+</html>
