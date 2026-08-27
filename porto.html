@@ -68,10 +68,10 @@
         /* ================= HERO ================= */
 
         .hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
-            padding: 120px 30px 70px;
+            padding: 90px 30px 50px;
             background: linear-gradient(135deg, #eff6ff, #ffffff);
         }
 
@@ -166,32 +166,36 @@
         }
 
         .profile-circle {
-            width: 220px;
-            height: 220px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
-            background: #dbeafe;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            font-weight: bold;
-            color: #2563eb;
+            overflow: hidden;
+            border: 5px solid white;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+
         }
 
         /* ================= GENERAL ================= */
 
         section {
-            padding: 100px 30px;
+            padding: 70px 30px;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: auto;
+            padding: 0 20px;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .section-title h2 {
@@ -209,7 +213,7 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 35px;
             align-items: center;
         }
 
@@ -231,7 +235,7 @@
 
         .info-card {
             background: white;
-            padding: 25px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
         }
@@ -285,7 +289,7 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
         }
 
@@ -380,77 +384,220 @@
             color: #6b7280;
         }
 
+
+        /* ================= CERTIFICATES ================= */
+
+        .certificates {
+            background: #f7f9fc;
+        }
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .certificate-card {
+            background: white;
+            padding: 28px;
+            border-radius: 15px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09);
+        }
+
+        .certificate-icon {
+            width: 55px;
+            height: 55px;
+            min-width: 55px;
+            background: #dbeafe;
+            color: #2563eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+        }
+
+        .certificate-content h3 {
+            font-size: 18px;
+            color: #111827;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .certificate-content p {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .certificate-badge {
+            display: inline-block;
+            margin-top: 12px;
+            background: #dbeafe;
+            color: #2563eb;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 230px;
+            background: #f8fafc;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: 0.3s;
+        }
+
+        .certificate-card:hover .certificate-image img {
+            transform: scale(1.03);
+        }
+
+
         /* ================= CONTACT ================= */
 
-        .contact {
-            background: #111827;
-            color: white;
+
+        .contact{
+
+            padding:100px 0;
+
+            background:#111827;
+
         }
 
-        .contact .section-title h2 {
-            color: white;
+        .contact h2{
+
+            text-align:center;
+
+            font-size:38px;
+
+            color:white;
+
+            margin-bottom:15px;
+
         }
 
-        .contact .section-title p {
-            color: #9ca3af;
+        .contact-subtitle{
+
+            text-align:center;
+
+            max-width:650px;
+
+            margin:0 auto 50px;
+
+            color:#d1d5db;
+
         }
 
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+        .contact-card{
+
+            max-width:700px;
+
+            margin:auto;
+
+            background:#1f2937;
+
+            padding:40px;
+
+            border-radius:18px;
+
+            border:1px solid #374151;
+
         }
 
-        .contact-info h3 {
-            font-size: 25px;
-            margin-bottom: 20px;
+        .contact-card h3{
+
+            color:white;
+
+            margin-bottom:15px;
+
         }
 
-        .contact-info p {
-            color: #d1d5db;
-            margin-bottom: 15px;
+        .contact-card p{
+
+            color:#d1d5db;
+
+            margin-bottom:30px;
+
         }
 
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .contact-links{
+
+            display:flex;
+
+            flex-direction:column;
+
+            gap:18px;
+
+            margin-bottom:35px;
+
         }
 
-        .contact-links a {
-            color: #dbeafe;
-            text-decoration: none;
+        .contact-links a{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:12px;
+
+            color:#f9fafb;
+
+            font-size:17px;
+
+            transition:.3s;
+
         }
 
-        .contact-links a:hover {
-            color: white;
+        .contact-links a:hover{
+
+            color:#60a5fa;
+
+            transform:translateX(5px);
+
         }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .contact-btn{
+
+            display:inline-block;
+
+            background:#2563eb;
+
+            color:white;
+
+            padding:14px 30px;
+
+            border-radius:10px;
+
+            font-weight:600;
+
+            transition:.3s;
+
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-family: inherit;
+        .contact-btn:hover{
+
+            background:#3b82f6;
+
         }
 
-        .contact-form textarea {
-            height: 130px;
-            resize: none;
-        }
-
-        .contact-form button {
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
 
         /* ================= FOOTER ================= */
 
@@ -490,6 +637,10 @@
 
             .about-content,
             .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -544,6 +695,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -567,7 +719,7 @@
                 </h1>
 
                 <h2>
-                    Data Analyst
+                    Data & Business Analytics | Statistical Analysis | Data-Driven Insights
                 </h2>
 
                 <p>
@@ -583,9 +735,6 @@
                         View My Projects
                     </a>
 
-                    <a href="CV-Naiya.pdf" class="btn btn-secondary">
-                        Download CV
-                    </a>
 
                 </div>
 
@@ -595,7 +744,7 @@
             <div class="hero-card">
 
                 <div class="profile-circle">
-                    NY
+                    <img src="pas-poto-naiya.jpeg" alt="NY">
                 </div>
 
             </div>
@@ -924,8 +1073,52 @@
 
                 </div>
 
-
                 <!-- PROJECT 2 -->
+
+                <div class="project-card">
+
+                    <div class="project-image">
+                        🗄️
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Amazon Sales Analysis
+                        </h3>
+
+                        <p>
+                            A comprehensive SQL project analyzing Amazon e-commerce
+                            transaction data to uncover sales trends, customer purchasing behavior, product performance, and actionable business insights using DuckDB.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">
+                                SQL
+                            </span>
+
+                            <span class="tag">
+                                DuckDB
+                            </span>
+
+                            <span class="tag">
+                                Business Analysis
+                                
+                            </span>
+
+                        </div>
+
+                        <a href="projects/project-2/amazon2.html" class="project-link">
+                            View Project →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROJECT 3 -->
 
                 <div class="project-card">
 
@@ -961,7 +1154,7 @@
 
                         </div>
 
-                        <a href="#" class="project-link">
+                        <a href="projects/project-3/amazon_vis.html" class="project-link">
                             View Project →
                         </a>
 
@@ -970,7 +1163,7 @@
                 </div>
 
 
-                <!-- PROJECT 3 -->
+                <!-- PROJECT 4 -->
 
                 <div class="project-card">
 
@@ -1006,7 +1199,7 @@
 
                         </div>
 
-                        <a href="#" class="project-link">
+                        <a href="projects/project-4/ansurv.html" class="project-link">
                             View Project →
                         </a>
 
@@ -1109,85 +1302,349 @@
     </section>
 
 
-    <!-- ================= CONTACT ================= -->
+    <!-- ================= CERTIFICATES ================= -->
 
-    <section class="contact" id="contact">
+    <section class="certificates" id="certificates">
 
         <div class="container">
 
             <div class="section-title">
 
-                <h2>Let's Connect</h2>
+                <h2>Certificates & Achievements</h2>
 
                 <p>
-                    I'm open to opportunities and collaborations
+                    Awards, certifications, and academic achievements
                 </p>
 
             </div>
 
 
-            <div class="contact-content">
+            <div class="certificate-grid">
 
 
-                <div class="contact-info">
+                <!-- CERTIFICATE 1 -->
 
-                    <h3>
-                        Get In Touch
-                    </h3>
+                <div class="certificate-card">
+
+                <div class="certificate-image">
+                    <img 
+                        src="certificates/gold_iicyms.jpg"
+                        alt="Gold Medalist Certificate"
+                    >
+                </div>
+
+                <div class="certificate-content">
+
+                    <h3>Gold Medalist</h3>
 
                     <p>
-                        Interested in working together or discussing
-                        a Data Analyst opportunity? Feel free to contact me.
+                        International Invention Competition
+                        for Young Moslem Scientist
                     </p>
 
+                    <span class="certificate-badge">
+                        International Achievement
+                    </span>
 
-                    <div class="contact-links">
+                </div>
 
-                        <a href="mailto:your.email@gmail.com">
-                            📧 your.email@gmail.com
-                        </a>
+            </div>
 
-                        <a href="#">
-                            🔗 LinkedIn
-                        </a>
 
-                        <a href="#">
-                            💻 GitHub
-                        </a>
+                <!-- CERTIFICATE 2 -->
+
+                <div class="certificate-card">
+
+                    <div class="certificate-image">
+                    <img 
+                        src="certificates/best_pres_icyms.jpg"
+                        alt="Gold Medalist Certificate"
+                    >
+                </div>
+
+                    <div class="certificate-content">
+
+                        <h3>
+                            Best Presentation Award
+                        </h3>
+
+                        <p>
+                            International Invention Competition
+                            for Young Moslem Scientist
+                        </p>
+
+                        <span class="certificate-badge">
+                            International Achievement
+                        </span>
 
                     </div>
 
                 </div>
 
 
-                <form class="contact-form"
-                      onsubmit="sendMessage(event)">
+                <!-- CERTIFICATE 3 -->
 
-                    <input
-                        type="text"
-                        placeholder="Your Name"
-                        required
+                <div class="certificate-card">
+
+                    <div class="certificate-image">
+                    <img 
+                        src="certificates/gold_wseec.jpg"
+                        alt="Gold Medalist Certificate"
                     >
+                </div>
 
-                    <input
-                        type="email"
-                        placeholder="Your Email"
-                        required
+                    <div class="certificate-content">
+
+                        <h3>
+                            Gold Medalist
+                        </h3>
+
+                        <p>
+                            World Science, Environment and
+                            Engineering Competition
+                        </p>
+
+                        <span class="certificate-badge">
+                            International Achievement
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CERTIFICATE 4 -->
+
+                <div class="certificate-card">
+
+                    <div class="certificate-image">
+                    <img 
+                        src="certificates/apresiasi.jpg"
+                        alt="Gold Medalist Certificate"
                     >
+                </div>
 
-                    <textarea
-                        placeholder="Your Message"
-                        required
-                    ></textarea>
+                    <div class="certificate-content">
 
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
+                        <h3>
+                            Rector's Appreciation for
+                            Outstanding International Achievement
+                        </h3>
+
+                        <p>
+                            3rd Place
+                        </p>
+
+                        <span class="certificate-badge">
+                            Academic Achievement
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CERTIFICATE 5 -->
+
+                <div class="certificate-card">
+
+                    <div class="certificate-image">
+                    <img 
+                        src="certificates/usm_sm.jpg"
+                        alt="Gold Medalist Certificate"
                     >
-                        Send Message
-                    </button>
+                </div>
 
-                </form>
+                    <div class="certificate-content">
+
+                        <h3>
+                            Fully Funded Student Mobility Program Delegate
+                        </h3>
+
+                        <p>
+                            Universiti Sains Malaysia (USM)
+                        </p>
+
+                        <span class="certificate-badge">
+                            Student Mobility
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CERTIFICATE 6 -->
+
+                <div class="certificate-card">
+
+                    <div class="certificate-image">
+                    <img 
+                        src="certificates/revou.jpg"
+                        alt="Gold Medalist Certificate"
+                    >
+                </div>
+
+                    <div class="certificate-content">
+
+                        <h3>
+                            Introduction to Data Analytics
+                        </h3>
+
+                        <p>
+                            RevoU
+                        </p>
+
+                        <span class="certificate-badge">
+                            Data Analytics
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CERTIFICATE 7 -->
+
+                <div class="certificate-card">
+
+                    <div class="certificate-image">
+                    <img 
+                        src="certificates/ict.jpeg"
+                        alt="Gold Medalist Certificate"
+                    >
+                </div>
+
+                    <div class="certificate-content">
+                        <h3>
+                            Microsoft Excel Training
+                        </h3>
+
+                        <p>
+                            UIN Sunan Gunung Djati Bandung
+                        </p>
+
+                        <span class="certificate-badge">
+                            Microsoft Excel
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CERTIFICATE 8 -->
+
+                <div class="certificate-card">
+
+                    <div class="certificate-image">
+                    <img 
+                        src="certificates/planet.jpg"
+                        alt="Gold Medalist Certificate"
+                    >
+                </div>
+
+                    <div class="certificate-content">
+
+                        <h3>
+                            Speaker Certificate
+                        </h3>
+
+                        <p>
+                            Introduction to Python, Mathematics Department,
+                            UIN Sunan Gunung Djati Bandung
+                        </p>
+
+                        <span class="certificate-badge">
+                            Speaker
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <h2>
+
+                Let's Connect
+
+            </h2>
+
+            <p class="contact-subtitle">
+
+                I'm currently open to Data Analyst opportunities,
+                internships, and collaboration projects.
+                Feel free to reach out!
+
+            </p>
+
+
+            <div class="contact-card">
+
+                <h3>
+
+                    Get In Touch
+
+                </h3>
+
+                <p>
+
+                    If you're interested in working together or would like
+                    to discuss a Data Analyst opportunity, I'd be happy to
+                    hear from you.
+
+                </p>
+
+
+                <div class="contact-links">
+
+                    <a href="mailto:naiyaying777@gmail.com">
+
+                        📧
+                        <span>
+
+                            naiyaying777@gmail.com
+
+                        </span>
+
+                    </a>
+
+
+                    <a href="https://www.linkedin.com/in/naiya-noveliana-ying-66aba4306"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        🔗
+                        <span>
+
+                            LinkedIn
+
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+
+                <a href="mailto:naiyaying777@gmail.com"
+                   class="contact-btn">
+
+                    Contact Me
+
+                </a>
 
             </div>
 
@@ -1206,24 +1663,6 @@
         </p>
 
     </footer>
-
-
-    <!-- ================= JAVASCRIPT ================= -->
-
-    <script>
-
-        function sendMessage(event) {
-
-            event.preventDefault();
-
-            alert(
-                "Thank you for your message! " +
-                "This contact form is currently a demo."
-            );
-
-        }
-
-    </script>
 
 </body>
 </html>
